@@ -78,7 +78,7 @@ typst query main.typ '<web-resource>' --field value \
 This will output the following piece of JSON:
 
 ```json
-[{"url": "https://raw.githubusercontent.com/SillyFreak/typst-prequery/refs/heads/main/test-assets/example-image.svg", "path": "assets/example-image.svg"}]
+[{"url": "https://raw.githubusercontent.com/typst-community/prequery/refs/heads/main/test-assets/example-image.svg", "path": "assets/example-image.svg"}]
 ```
 
 ... which can then be fed into a preprocessor. As mentioned, the gallery contains a Python script for processing this query output:
@@ -101,7 +101,7 @@ typst query main.typ '<web-resource>' --field value \
 The first time this runs, the image will be downloaded with the following output:
 
 ```
-assets/example-image.svg: downloading https://raw.githubusercontent.com/SillyFreak/typst-prequery/refs/heads/main/test-assets/example-image.svg
+assets/example-image.svg: downloading https://raw.githubusercontent.com/typst-community/prequery/refs/heads/main/test-assets/example-image.svg
 ```
 
 Success! After running this, compiling the document will succeed.

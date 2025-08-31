@@ -13,7 +13,7 @@ Here's an example for referencing images from the internet:
 // #prequery.fallback.update(true)
 
 #prequery.image(
-  "https://raw.githubusercontent.com/SillyFreak/typst-prequery/refs/heads/main/test-assets/example-image.svg",
+  "https://raw.githubusercontent.com/typst-community/prequery/refs/heads/main/test-assets/example-image.svg",
   "assets/example-image.svg")
 ```
 
@@ -27,7 +27,7 @@ typst query --input prequery-fallback=true --field value \
 This will output the following piece of JSON:
 
 ```json
-[{"url": "https://raw.githubusercontent.com/SillyFreak/typst-prequery/refs/heads/main/test-assets/example-image.svg", "path": "assets/example-image.svg"}]
+[{"url": "https://raw.githubusercontent.com/typst-community/prequery/refs/heads/main/test-assets/example-image.svg", "path": "assets/example-image.svg"}]
 ```
 
 Which can then be used to download all images to the expected locations.
