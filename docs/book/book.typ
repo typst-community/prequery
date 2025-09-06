@@ -7,6 +7,7 @@
 #import "contrib/typst/gh-pages.typ": project as book-page, heading-reference
 
 #let meta = toml("/typst.toml").package
+#let import-spec(namespace: "preview") = "@" + namespace + "/" + meta.name + ":" + meta.version
 
 #show: summary => book-meta(
   title: "Prequery Preprocessor",
@@ -18,3 +19,11 @@
 )
 
 #prefix-chapter("introduction.typ")[Introduction]
+
+= Quickstart
+- #chapter("quickstart/installation.typ")[Installation]
+- #chapter("quickstart/documents.typ")[Using Prequery in documents]
+- #chapter("quickstart/preprocessor.typ")[Running the preprocessor]
+
+= Preprocessor kinds
+- #chapter("preprocessors/web-resource.typ")[Web resources]
