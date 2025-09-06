@@ -25,6 +25,10 @@ doc:
   typst c gallery/test.typ
   rm -r gallery/assets/
 
+# preview the book locally
+serve-book:
+  shiroa serve --mode static-html -w . docs/book/
+
 # run test suite
 test *args:
   tt run {{ args }}
