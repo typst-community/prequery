@@ -26,6 +26,7 @@
 - #chapter("quickstart/preprocessor.typ")[Running the preprocessor]
 
 = Typst Package
+- #chapter("package/prequeries.typ")[Authoring Prequeries]
 - #chapter("package/api.typ")[Prequery API]
 
 = Preprocessor kinds
