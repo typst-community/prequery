@@ -1,5 +1,12 @@
 # Prequery
 
+[![GitHub Pages](https://img.shields.io/static/v1?logo=github&label=Pages&message=prequery&color=blue)](https://typst-community.github.io/prequery/)
+[![GitHub repo](https://img.shields.io/static/v1?logo=github&label=Repo&message=prequery&color=blue)](https://github.com/typst-community/prequery)
+[![Universe](https://img.shields.io/static/v1?logo=typst&label=Universe&message=prequery&color=239DAD)](https://typst.app/universe/package/prequery)
+[![GitHub tag](https://img.shields.io/github/tag/typst-community/prequery?sort=semver&color=blue)](https://github.com/typst-community/prequery/tags/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/typst-community/prequery?tab=MIT-1-ov-file)
+[![GitHub issues](https://img.shields.io/github/issues/typst-community/prequery)](https://github.com/typst-community/prequery/issues)
+
 This package helps extracting metadata for preprocessing from a typst document, for example image URLs for download from the web.
 Typst compilations are sandboxed: it is not possible for Typst packages, or even just a Typst document itself, to access the "ouside world".
 This sandboxing of Typst has good reasons.
