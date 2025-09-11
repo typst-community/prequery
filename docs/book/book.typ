@@ -25,5 +25,8 @@
 - #chapter("quickstart/documents.typ")[Using Prequery in documents]
 - #chapter("quickstart/preprocessor.typ")[Running the preprocessor]
 
+= Typst Package
+- #chapter("package/api.typ")[Prequery API]
+
 = Preprocessor kinds
 - #chapter("preprocessors/web-resource.typ")[Web resources]
