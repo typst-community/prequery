@@ -9,7 +9,7 @@ authors = [
 ]
 license = "MIT"
 description = "library for extracting metadata for preprocessing from a typst document"
-# homepage = ""
+homepage = "https://typst-community.github.io/prequery/"
 repository = "https://github.com/SillyFreak/typst-packages/tree/main/prequery"
 keywords = ["query", "metadata", "preprocessing"]
 categories = ["scripting", "utility"]

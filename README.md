@@ -1,6 +1,12 @@
 # Prequery
 
-This package helps extracting metadata for preprocessing from a typst document, for example image URLs for download from the web. Typst compilations are sandboxed: it is not possible for Typst packages, or even just a Typst document itself, to access the "ouside world". This sandboxing of Typst has good reasons. Yet, it is often convenient to trade a bit of security for convenience by weakening it. Prequery helps with that by providing some simple scaffolding for supporting preprocessing of documents.
+This package helps extracting metadata for preprocessing from a typst document, for example image URLs for download from the web.
+Typst compilations are sandboxed: it is not possible for Typst packages, or even just a Typst document itself, to access the "ouside world".
+This sandboxing of Typst has good reasons.
+Yet, it is often convenient to trade a bit of security for convenience by weakening it.
+Prequery helps with that by providing some simple scaffolding for supporting preprocessing of documents.
+
+The Prequery documentation is located at https://typst-community.github.io/prequery/; for now, the package API is still in the [PDF manual](docs/manual.pdf).
 
 ## Getting Started
 
@@ -31,7 +37,4 @@ This will output the following piece of JSON:
 ```
 
 Which can then be used to download all images to the expected locations.
-
-## Usage
-
-See the [manual](docs/manual.pdf) for details.
+One option to do so is to use the `prequery` preprocessor; you can look at the [Quickstart section](https://typst-community.github.io/prequery/quickstart/installation.html) to learn how.
