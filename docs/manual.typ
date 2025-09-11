@@ -7,7 +7,7 @@
   package-meta: toml("/typst.toml").package,
   title: "Prequery",
   subtitle: "Extracting metadata for preprocessing from a typst document, for example image URLs for download from the web.",
-  date: datetime(year: 2024, month: 3, day: 19),
+  date: datetime(year: 2025, month: 9, day: 12),
 
   // logo: rect(width: 5cm, height: 5cm),
   abstract: [

@@ -16,4 +16,4 @@ Justfile
 docs/*
 !docs/*.pdf
 gallery/*
-!gallery/*.pdf
+#!gallery/*.pdf
