@@ -20,7 +20,7 @@ The Prequery documentation is located at https://typst-community.github.io/prequ
 Here's an example for referencing images from the internet:
 
 ```typ
-#import "@preview/prequery:0.1.0"
+#import "@preview/prequery:0.2.0"
 
 // toggle this comment or pass `--input prequery-fallback=true` to enable fallback
 // #prequery.fallback.update(true)

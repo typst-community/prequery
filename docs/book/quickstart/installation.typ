@@ -31,7 +31,7 @@ To install Prequery from source, you must have a Rust toolchain (Rust v1.85.0+) 
 == Stable
 
 ```bash
-cargo install --locked --git https://github.com/typst-community/prequery-preprocess --tag v0.1.0
+cargo install --locked --git https://github.com/typst-community/prequery-preprocess --tag v0.2.0
 ```
 
 == Nightly
