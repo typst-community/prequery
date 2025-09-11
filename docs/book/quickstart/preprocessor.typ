@@ -46,8 +46,8 @@ If everything is in place, you should see some output like this:
 
 ```
 [download] beginning job...
-[download] Downloading https://example.com/example.png to example.png...
-[download] Downloading https://example.com/example.png to example.png finished
+[download] Downloading to example.png: https://example.com/example.png...
+[download] Downloading to example.png finished
 [download] job finished
 ```
 
