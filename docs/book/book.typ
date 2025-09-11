@@ -19,6 +19,7 @@
 )
 
 #prefix-chapter("introduction.typ")[Introduction]
+#prefix-chapter("limitations.typ")[Fundamental limitations]
 
 = Quickstart
 - #chapter("quickstart/installation.typ")[Installation]
