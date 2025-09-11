@@ -16,7 +16,7 @@ After you downloaded the correct archive for your operating system and architect
 
 = Using cargo-binstall
 
-The most straight forward way to install Tytanic is to use #link("https://crates.io/crates/cargo-binstall")[`cargo-binstall`], this saves you the hassle of compiling from source.
+The most straight forward way to install Prequery is to use #link("https://crates.io/crates/cargo-binstall")[`cargo-binstall`], this saves you the hassle of compiling from source.
 
 `prequery` is so far not published on #link("https://crates.io/")[crates.io], so you need to install by refrencing the git repository:
 
@@ -26,7 +26,7 @@ cargo binstall --git https://github.com/typst-community/prequery-preprocess preq
 
 = Installation From Source
 
-To install Tytanic from source, you must have a Rust toolchain (Rust v1.85.0+) and `cargo` installed, you can get these using #link("https://www.rust-lang.org/tools/install")[`rustup`].
+To install Prequery from source, you must have a Rust toolchain (Rust v1.85.0+) and `cargo` installed, you can get these using #link("https://www.rust-lang.org/tools/install")[`rustup`].
 
 == Stable
 
@@ -40,7 +40,7 @@ cargo install --locked --git https://github.com/typst-community/prequery-preproc
 cargo install --locked --git https://github.com/typst-community/prequery-preprocess
 ```
 
-This method usually doesn't require manually placing the tt binary in your `$PATH` because the cargo binary directory should already be in there.
+This method usually doesn't require manually placing the Prequery binary in your `$PATH` because the cargo binary directory should already be in there.
 
 == Dependencies
 
