@@ -163,7 +163,7 @@ print("hello world")
 // or even
 ```pre-py
 print("hello world")
-```)
+```
 ````
 
 The bad news is, you _have_ to specify a file name for the read-outside-the-package trick to work;
