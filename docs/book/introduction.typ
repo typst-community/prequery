@@ -14,7 +14,8 @@ See #cross-link("/quickstart/documents.typ")[Using Prequery in documents] on how
 The #link("https://github.com/typst-community/prequery-preprocess")[`prequery` CLI tool] is one such tool that can process this information to prepare results for use inside your documents.
 See #cross-link("/quickstart/installation.typ")[Installation] and #cross-link("/quickstart/preprocessor.typ")[Running the preprocessor] on how to use that.
 
-Using external tools means that documents using _Prequery_ are no longer platform independent.
+A system like _Prequery_ is fundamentally subject to some #cross-link("/limitations.typ")[limitations and caveats].
+Using external tools means that you need to trust more than just the Typst application, and that documents using _Prequery_ are no longer platform independent.
 The `prequery` tool is available for Linux, Windows and Mac, but other tools may not be.
 Projects in the web app are not supported, as you can't run external tools there.
 
