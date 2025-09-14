@@ -32,3 +32,4 @@
 
 = Preprocessor kinds
 - #chapter("preprocessors/web-resource.typ")[Web resources]
+- #chapter("preprocessors/shell.typ")[Shell]
