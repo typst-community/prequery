@@ -20,7 +20,7 @@ Projects in the web app are not supported, as you can't run external tools there
 
 = Early stage
 
-_Prequery_ is still in early development; it works as an end-to-end solution to download files needed by your document from the web, but not much else.
+_Prequery_ is still in early development; it works as an end-to-end solution to download files needed by your document from the web, and there is early support for running arbitrary shell commands.
 If you need other features, feel free to open an issue on #link("https://github.com/typst-community/prequery/issues")[the package] or #link("https://github.com/typst-community/prequery-preprocess/issues")[the CLI tool].
 You can also build your own features on top of what's already there and pull requests are welcome.
 

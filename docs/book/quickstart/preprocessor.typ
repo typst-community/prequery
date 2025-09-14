@@ -68,6 +68,6 @@ You have now seen how to automate the preparation of you document's resources us
 - Configure the `prequery` command line tool in `typst.toml` to tell it what kind of resources/processing is required.
 - Run the `prequery` command whenever your resources have changed.
 
-This is almost the current extent of what _Prequery_ can do.
 You can take a look at the #cross-link("/preprocessors/web-resource.typ")[`web-resource` preprocessor's documentation] to see its more advanced features.
-If you need to do something other than downloading files from the web, let us know in an issue on #link("https://github.com/typst-community/prequery/issues")[the package] or #link("https://github.com/typst-community/prequery-preprocess/issues")[the CLI tool].
+For other use cases, the #cross-link("/preprocessors/shell.typ")[`shell` preprocessor] offers early support for running arbitrary commands.
+If you need to do something and are not sure if it can be done with _Prequery_, let us know in an issue on #link("https://github.com/typst-community/prequery/issues")[the package] or #link("https://github.com/typst-community/prequery-preprocess/issues")[the CLI tool].
