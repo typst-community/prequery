@@ -26,6 +26,12 @@ command = "..." # required, can also be an array like `["ls" "-l"]`
 
 # execute a single command with an array of all inputs
 joined = false
+# data passed to commands via stdin is in JSON format
+format.stdin = "json"
+# data received for commands via stdout is in JSON format
+format.stdout = "json"
+# data written to files for prequeries to read is in JSON format
+format.stdout = "json"
 ```
 // # execute commands concurrently, not in the order they appear in the document
 // concurrent = false
@@ -65,8 +71,8 @@ query.field = "value"
 
 = Command input and output
 
-Currently, all input and output with the executed commands happens through stdin and stdout, in the form of JSON value.
-That means that, if your document for contains these metadata elements:
+Currently, all input and output with the executed commands happens through stdin and stdout, either in the form of a single JSON value, or as plain text.
+For example, if your document contains these metadata elements:
 
 ```typ
 #metadata((path: "file1.json", data: "any value"))<shell>
@@ -80,12 +86,30 @@ Then two commands will be executed, and they will receive the following data (re
 ["complex","value",2]
 ```
 
-Likewise, the commands are required to return a single valid JSON value through stdout.
+If there are complex values in the document, then a structured format (i.e. JSON) must be used.
+If the document contained only the first value (i.e. only strings), then setting `format.stdin = "plain"` could be used.
+In that case, the value passed to the command via stdin would be this:
+
+```txt
+any value
+```
+
+Similarly, commands must by default return a JSON value via stdout.
+By setting `format.stdout = "plain"`, the command output will instead be interpreted as a UTF8 encoded string.
+
+= Output file format
+
+Like for commands, the file format used to save results for prequeries to read can also be set.
+By default, all data is saved in JSON format.
+That means, for example, that if a command returned `"plain"` text, this result will be quoted in the output file.
+
+If the commands return text (either by setting `format.stdout = "plain"`, or because the produced JSON value was a string), _and_ each command's output is saved in a separate file, then `format.output = "plain"` can be used to store results as plain text file.
+If command outputs are saved in a combined file this is not possible, as the file will store an array of results.
 
 = Joined command execution
 
 When `joined = true` is configured, then instead of running one command for each input, one command is run for the combined input instead.
-The data will be given to the command as a single JSON array.
+The data will be given to the command as a single JSON array, and `"plain"` input/output is consequently not possible.
 For the above document, that would look like this:
 
 ```json
@@ -94,28 +118,73 @@ For the above document, that would look like this:
 
 In this mode, the command is required to return a JSON array of the same length.
 
+= Examples
+
+== Running independent Python snippets
+
+To run individual Python code snippets, you can feed Python scripts directly via stdin into a `python` command.
+The `python` command expects and produces plain text, not JSON, so it would be configured like this:
+
+```toml
+query.selector = "<python>"
+
+command = "python"
+format.stdin = "plain"
+format.stdout = "plain"
+```
+
+You can optionally configure `format.output = "plain"` if you don't want to decode JSON files on the Typst side.
+
+Your Typst document would contain the code snippets in the following form:
+
+````typ
+// if you want plain text, you'd need to configure
+// individual output files for each snippet
+#metadata((path: "out.json"))<python>
+
+#metadata((data: ```py
+print("Hello World")
+```.text))<python>
+
+#metadata((data: ```py
+print("Hello Prequery")
+```.text))<python>
+````
+
+To specify the code snippets and read the results in a single step, you'd define a #cross-link("/package/prequeries.typ")[custom prequery] that additionally reads the `out.json` file.
+
 == Example: running dependent Python snippets
 
 Let's say you want to create an interactive Python notebook in which later code blocks can depend on earlier ones' results.
-You could do this with a document like this:
+Similar to before, your document could look like this:
 
 ````typ
-// put all output in the same file
 #metadata((path: "out.json"))<python>
-// code block 1
+
 #metadata((data: ```py
 x = 1
 print(x)
 ```.text))<python>
-// code block 2
+
 #metadata((data: ```py
 y = x + 1
 print(y)
 ```.text))<python>
 ````
 
-Here, the selector for querying the metadata is `query.selector = "<python>"`.
-To execute all the code snippets, and separate their outputs, a Python script like the following could be used:
+This is a case where we want to use `joined = true`: all snippets should execute in a single Python process.
+We'll need to write a Python script to facilitate this, and that script will need to read and write JSON, as required for `joined` commands.
+
+The preprocessor configuration looks like this:
+
+```toml
+query.selector = "<python>"
+
+command = ["python", "exec.py"]
+joined = true
+```
+
+The following Python script, saved as `exec.py` can do the job of executing the code snippets and separately capturing their outputs:
 
 ```py
 import contextlib
@@ -139,13 +208,4 @@ outputs = [run(code, scope) for code in inputs]
 
 # write outputs (JSON array of the same length) back to stdout
 sys.stdout.write(json.dumps(outputs))
-```
-
-If this script is saved as `exec.py`, it could be run through the Shell preprocessor like this:
-
-```toml
-query.selector = "<python>"
-
-command = ["python", "exec.py"]
-joined = true
 ```
