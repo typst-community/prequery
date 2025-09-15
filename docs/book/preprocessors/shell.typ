@@ -6,6 +6,7 @@
 #show: book-page.with(title: [Shell])
 
 Executes arbitrary commands on the system.
+The working directory of the launched commands is that of the containing `typst.toml` file, i.e. paths in the command are relative to the file the command is specified in.
 // If all command configuration is up-to-date, command execution is skipped.
 // This preprocessor can be used in combination with the #link("https://typst.app/universe/package/prequery")[Prequery package's] `shell()` function.
 
