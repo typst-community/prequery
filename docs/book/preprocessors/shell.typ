@@ -32,7 +32,7 @@ format.stdin = "json"
 # data received for commands via stdout is in JSON format
 format.stdout = "json"
 # data written to files for prequeries to read is in JSON format
-format.stdout = "json"
+format.output = "json"
 ```
 // # execute commands concurrently, not in the order they appear in the document
 // concurrent = false
