@@ -1,9 +1,8 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page, import-spec
+#import "../utils.typ": import-spec
 
-#show: book-page.with(title: [Using Prequery in documents])
+#title[Using Prequery in documents]
 
 Let's say you have a document with many images in them, and these images are available on the web.
 Instead of manually downloading these images, you'd like to load these images from their respective URLs, something like this:
@@ -53,4 +52,4 @@ typst compile --input prequery-fallback=true main.typ
 
 = Next steps
 
-At this point, you don't have your image inside your document yet -- for that, you'll need to #cross-link("/quickstart/preprocessor.typ")[run the `prequery` CLI tool].
+At this point, you don't have your image inside your document yet -- for that, you'll need to #link(label("page:/prequery/quickstart/preprocessor"))[run the `prequery` CLI tool].

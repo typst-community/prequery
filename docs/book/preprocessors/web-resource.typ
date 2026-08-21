@@ -1,9 +1,6 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page
-
-#show: book-page.with(title: [Web resources])
+#title[Web resources]
 
 Downloads files from the web.
 If a file required by the document exists already, it is not re-downloaded by default.

@@ -25,9 +25,13 @@ doc:
   typst c gallery/test.typ
   rm -r gallery/assets/
 
-# preview the book locally
+# build the book
+book:
+  typst compile --root . --features bundle,html --format bundle docs/book/dist.typ
+  # pagefind --site docs/book/dist --output-subdir prequery/pagefind
+
 serve-book:
-  shiroa serve --mode static-html -w . docs/book/
+  typst watch --root . --features bundle,html --format bundle docs/book/dist.typ
 
 # run test suite
 test *args:

@@ -1,9 +1,8 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page, import-spec
+#import "../utils.typ": import-spec
 
-#show: book-page.with(title: [Authoring Prequeries])
+#title[Authoring Prequeries]
 
 _Prequery_ is not just meant for people who want to download images; its real purpose is to make it easy to create _any_ kind of preprocessing for Typst documents, without having to leave the document for configuring that preprocessing.
 
@@ -140,7 +139,7 @@ And we also know what we want as a fallback:
 ````
 
 ... and that's it!
-It may still require some tinkering, but you should be able to use a #cross-link("/preprocessors/shell.typ")[`shell` preprocessor job] to execute the code contained in this prequery.
+It may still require some tinkering, but you should be able to use a #link(label("page:/prequery/preprocessors/shell"))[`shell` preprocessor job] to execute the code contained in this prequery.
 
 == Avoiding individual output files
 

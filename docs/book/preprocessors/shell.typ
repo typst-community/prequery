@@ -1,9 +1,6 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page
-
-#show: book-page.with(title: [Shell])
+#title[Shell]
 
 Executes arbitrary commands on the system.
 The working directory of the launched commands is that of the containing `typst.toml` file, i.e. paths in the command are relative to the file the command is specified in.
@@ -152,7 +149,7 @@ print("Hello Prequery")
 ```.text))<python>
 ````
 
-To specify the code snippets and read the results in a single step, you'd define a #cross-link("/package/prequeries.typ")[custom prequery] that additionally reads the `out.json` file.
+To specify the code snippets and read the results in a single step, you'd define a #link(label("page:/prequery/package/prequeries"))[custom prequery] that additionally reads the `out.json` file.
 
 == Example: running dependent Python snippets
 

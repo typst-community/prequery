@@ -1,9 +1,8 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page
+#import "../utils.typ": meta
 
-#show: book-page.with(title: [Installation])
+#title[Installation]
 
 If you plan to use the #link("https://github.com/typst-community/prequery-preprocess")[`prequery` CLI tool], you will need to install it on your system.
 This is not necessary to run other external tools in combination with the #link("https://typst.app/universe/package/prequery")[Prequery package].
