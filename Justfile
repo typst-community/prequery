@@ -28,7 +28,7 @@ doc:
 # build the book
 book:
   typst compile --root . --features bundle,html --format bundle docs/book/dist.typ
-  # pagefind --site docs/book/dist --output-subdir prequery/pagefind
+  pagefind --site docs/book/dist --output-subdir prequery/pagefind
 
 serve-book:
   typst watch --root . --features bundle,html --format bundle docs/book/dist.typ

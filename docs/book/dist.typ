@@ -12,7 +12,7 @@
       show: html.h1.with(class: "p-4 text-xl font-bold italic")
       [Prequery]
     },
-    // pagefind-enabled: true,
+    pagefind-enabled: true,
     footer-content: [
       Powered by #link("https://github.com/wensimehrp/haita")[Haita].
     ],
