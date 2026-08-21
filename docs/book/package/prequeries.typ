@@ -1,9 +1,8 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ": book-page, import-spec
+#import "../utils.typ": import-spec
 
-#show: book-page.with(title: [Authoring Prequeries])
+#title[Authoring Prequeries]
 
 _Prequery_ is not just meant for people who want to download images; its real purpose is to make it easy to create _any_ kind of preprocessing for Typst documents, without having to leave the document for configuring that preprocessing.
 
@@ -78,7 +77,7 @@ The path is thus resolved as `"assets/foo.png"`.
 
 This is of course very useful for prequeries, which are all about specifying the files into which external data should be saved, and then successfully reading from these files! As long as the file name remains in an `arguments` value, it can be passed on and still treated as relative to the caller of the package.
 
-= Writing your own prequeries
+= Writing your own prequeries <custom-prequeries>
 
 A prequery thus basically consists of the following parts:
 
@@ -140,7 +139,7 @@ And we also know what we want as a fallback:
 ````
 
 ... and that's it!
-It may still require some tinkering, but you should be able to use a #cross-link("/preprocessors/shell.typ")[`shell` preprocessor job] to execute the code contained in this prequery.
+It may still require some tinkering, but you should be able to use a #link(<python-preprocessor>)[`shell` preprocessor job] to execute the code contained in this prequery.
 
 == Avoiding individual output files
 

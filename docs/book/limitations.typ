@@ -1,9 +1,6 @@
-#import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "book.typ": book-page, import-spec
-
-#show: book-page.with(title: [Fundamental limitations])
+#title[Fundamental limitations]
 
 Typst sandboxes your documents, including packages that you probably haven't inspected, and that's a good thing.
 By using Prequery (or rather, a preprocessor based on Prequery), you're intentionally breaking this sandbox at your own risk.
