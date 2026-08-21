@@ -14,29 +14,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build-docs:
+    name: Build Haita Book
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Install just and pagefind
+        uses: taiki-e/install-action@v2
+        with:
+          tool: just,pagefind
+      - name: Setup typst
+        id: setup-typst
+        uses: typst-community/setup-typst@v5
+      - name: Build Book
+        run: just book
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs/book/dist/prequery
+
   deploy:
     name: Deploy GitHub Pages
+    needs: build-docs
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Install Shiroa
-        uses: typst-community/setup-shiroa@v1
-        with:
-          shiroa-version: 0.3.1-rc3
-      - name: Build Book
-        run: shiroa build --mode static-html --path-to-root /${{github.event.repository.name}}/ -w . docs/book
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'docs/book/dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
