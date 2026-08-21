@@ -101,7 +101,7 @@ Like for commands, the file format used to save results for prequeries to read c
 By default, all data is saved in JSON format.
 That means, for example, that if a command returned `"plain"` text, this result will be quoted in the output file.
 
-If the commands return text (either by setting `format.stdout = "plain"`, or because the produced JSON value was a string), _and_ each command's output is saved in a separate file, then `format.output = "plain"` can be used to store results as plain text file.
+If the commands return text (either by setting `format.stdout = "plain"`, or because the produced JSON value was a string), _and_ each command's output is saved in a separate file, then `format.output = "plain"` can be used to store results as plain text files.
 If command outputs are saved in a combined file this is not possible, as the file will store an array of results.
 
 = Joined command execution
@@ -118,7 +118,7 @@ In this mode, the command is required to return a JSON array of the same length.
 
 = Examples
 
-== Running independent Python snippets
+== Running independent Python snippets <python-preprocessor>
 
 To run individual Python code snippets, you can feed Python scripts directly via stdin into a `python` command.
 The `python` command expects and produces plain text, not JSON, so it would be configured like this:
@@ -149,9 +149,9 @@ print("Hello Prequery")
 ```.text))<python>
 ````
 
-To specify the code snippets and read the results in a single step, you'd define a #link(label("page:/prequery/package/prequeries"))[custom prequery] that additionally reads the `out.json` file.
+To specify the code snippets and read the results in a single step, you'd define a #link(<custom-prequeries>)[custom prequery] that additionally reads the `out.json` file.
 
-== Example: running dependent Python snippets
+== Running dependent Python snippets
 
 Let's say you want to create an interactive Python notebook in which later code blocks can depend on earlier ones' results.
 Similar to before, your document could look like this:

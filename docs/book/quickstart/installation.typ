@@ -15,7 +15,7 @@ After you downloaded the correct archive for your operating system and architect
 
 = Using cargo-binstall
 
-The most straight forward way to install Prequery is to use #link("https://crates.io/crates/cargo-binstall")[`cargo-binstall`], this saves you the hassle of compiling from source.
+The most straight forward way to install Prequery is to use #link("https://crates.io/crates/cargo-binstall")[`cargo-binstall`];; this saves you the hassle of compiling from source.
 
 `prequery` is so far not published on #link("https://crates.io/")[crates.io], so you need to install by refrencing the git repository:
 
@@ -29,9 +29,13 @@ To install Prequery from source, you must have a Rust toolchain (Rust v1.85.0+) 
 
 == Stable
 
-```bash
-cargo install --locked --git https://github.com/typst-community/prequery-preprocess --tag v0.2.0
-```
+#crudo.map(
+  ```bash
+  cargo install --locked --git https://github.com/typst-community/prequery-preprocess --tag vLATEST
+  ```,
+  l => l.replace("LATEST", meta.version),
+)
+
 
 == Nightly
 
@@ -39,7 +43,7 @@ cargo install --locked --git https://github.com/typst-community/prequery-preproc
 cargo install --locked --git https://github.com/typst-community/prequery-preprocess
 ```
 
-This method usually doesn't require manually placing the Prequery binary in your `$PATH` because the cargo binary directory should already be in there.
+These methods usually don't require manually placing the Prequery binary in your `$PATH` because the cargo binary directory should already be in there.
 
 == Dependencies
 
