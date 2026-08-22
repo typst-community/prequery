@@ -38,9 +38,8 @@
   /// the label to give the created metadata
   /// -> label
   lbl,
-  /// function): the body to display; if a function is given, that function will not be called in
-  /// fallback mode
-  /// -> content
+  /// the body to display; if a function is given, that function will not be called in fallback mode
+  /// -> content | function
   body,
   /// the fallback content to display when in fallback mode
   /// -> content
