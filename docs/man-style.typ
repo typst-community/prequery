@@ -1,6 +1,8 @@
 // adapted from https://github.com/Mc-Zen/tidy/blob/v0.3.0/src/styles/minimal.typ
 
-#import "@preview/bullseye:0.1.0": target, match-target, on-target, show-target
+#import "@preview/bullseye:0.1.0": match-target, on-target
+
+#let lazy-target(..targets) = match-target(..targets)()
 
 // ==== internal utilities
 
@@ -138,12 +140,12 @@
       }
     }
   }
-  context match-target(
-    paged: mono({
+  context lazy-target(
+    paged: () => mono({
       text(name-fill, name)
       [#signature#lbl]
     }),
-    html: {
+    html: () => {
       if lbl != none {
         let chapter-heading-state = state("prequery/package/api chapter state", ())
         chapter-heading-state.update(arr => arr + (lbl,))
@@ -160,8 +162,8 @@
   types.map(style-args.style.show-type.with(style-args: style-args)).join(joiner)
 }
 
-#let signature-block(..args) = context match-target(
-  paged: {
+#let signature-block(..args) = context lazy-target(
+  paged: () => {
     let bar-width = 1mm
     set par(justify: false)
     block(
@@ -175,7 +177,7 @@
       ..args
     )
   },
-  html: {
+  html: () => {
     let (body,) = args.pos()
     show: html.div.with(class: "mt-8 mb-2 p-2 border-l-4 border-l-[#1f2a63] rounded-md bg-[#d8dbed] text-sm font-mono not-prose")
     body
@@ -250,15 +252,15 @@
 }
 
 // Create beautiful, colored type box
-#let show-type(type, style-args: (:)) = context match-target(
-  paged: {
+#let show-type(type, style-args: (:)) = context lazy-target(
+  paged: () => {
     h(2pt)
     type-link(type, {
       box(outset: 2pt, fill: get-type-color(type), radius: 2pt, raw(type, lang: none))
     })
     h(2pt)
   },
-  html: {
+  html: () => {
     show: html.span.with(class: "m-0.5 px-[2px] py-[1px] rounded-sm bg-gray-100 not-prose")
     type-link(type, type)
   },
@@ -299,7 +301,9 @@
     [*#parameters-string:*]
     args.join()
   }
-  v(4em, weak: true)
+  context on-target(paged: {
+    v(4em, weak: true)
+  })
 }
 
 #let show-parameter-list(fn, style-args) = {
@@ -386,7 +390,9 @@
   })
   block(eval-docstring(var.description, style-args))
 
-  v(4em, weak: true)
+  context on-target(paged: {
+    v(4em, weak: true)
+  })
 }
 
 #let show-example(no-codly: true, in-raw: true, ..args) = {
