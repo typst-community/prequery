@@ -10,7 +10,7 @@
 
 #book(
   title: "Prequery",
-  canonical-url: "https://https://typst-community.github.io",
+  canonical-url: "https://typst-community.github.io",
   root: "prequery",
 
   // This sets your html renderer. You can customize the HTML renderer
