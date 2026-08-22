@@ -1,7 +1,11 @@
 #import "@preview/crudo:0.1.1"
 
+#import "/docs/book/tidy.typ": module, tidy.parse-module
+
 #title[Prequery API]
 
-For now, you can find the prequery package's API in the PDF manual.
-The latest released version can be found on the package's #link("https://typst.app/universe/package/prequery")[Universe page],
-the development version can be found #link("https://github.com/typst-community/prequery/blob/main/docs/manual.pdf?raw=1")[on Github].
+#module(
+  read("/src/lib.typ"),
+  name: none,
+  label-prefix: none,
+)

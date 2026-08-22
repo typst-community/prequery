@@ -1,5 +1,13 @@
 #import "@preview/haita:0.3.0": *
 
+#import "/src/lib.typ" as prequery
+#import "tidy.typ": set-info
+
+#set-info(
+  package-meta: toml("/typst.toml").package,
+  scope: (prequery: prequery),
+)
+
 #book(
   title: "Prequery",
   canonical-url: "https://https://typst-community.github.io",
