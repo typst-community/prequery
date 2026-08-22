@@ -1,5 +1,13 @@
 #import "@preview/haita:0.3.0": *
 
+#import "/src/lib.typ" as prequery
+#import "tidy.typ": set-info
+
+#set-info(
+  package-meta: toml("/typst.toml").package,
+  scope: (prequery: prequery),
+)
+
 #book(
   title: "Prequery",
   canonical-url: "https://https://typst-community.github.io",
@@ -10,7 +18,7 @@
   html-renderer: new-hamber.html-renderer.with(
     sidebar-image: {
       show: html.h1.with(class: "p-4 text-xl font-bold italic")
-      [Prequery]
+      link("/prequery")[Prequery]
     },
     pagefind-enabled: true,
     footer-content: [
