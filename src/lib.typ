@@ -83,7 +83,7 @@
 /// -> content
 #let image(
   /// the URL of the image to be shown
-  /// -> string
+  /// -> str
   url,
   /// arguments to be forwarded to built-in `image`
   /// -> arguments

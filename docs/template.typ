@@ -8,6 +8,18 @@
 #import "man-style.typ"
 
 #let _info = state("manual:info")
+#let _haita_path_str = state("manual:haita-path-str")
+
+// set the package metadata and scope
+#let set-info(
+  package-meta: none,
+  scope: (:),
+) = {
+  _info.update((
+    meta: package-meta,
+    scope: scope,
+  ))
+}
 
 // The manual function defines how your document looks.
 // It takes your content and some metadata and formats it.
@@ -39,10 +51,10 @@
   })
   let version = if-auto(version, def: package-meta.version)
 
-  _info.update((
-    meta: package-meta,
+  set-info(
+    package-meta: package-meta,
     scope: scope,
-  ))
+  )
 
   // Set the document's basic properties.
   set document(author: authors, title: title, date: date)
@@ -66,9 +78,11 @@
   // title page
   page(columns: 2, {
     place(top, float: true, scope: "parent", {
-      show: block.with(height: 75%, above: 1.5cm)
+      show: block.with(height: 75%)
 
       set align(center)
+
+      v(1fr)
 
       // title
       block(text(weight: 700, 1.75em, title))
@@ -101,7 +115,6 @@
         ))
       })
 
-
       v(1fr)
 
       set align(left)
@@ -126,6 +139,9 @@
 
 // retrieve the package metadata (contextual)
 #let package-meta() = _info.get().meta
+
+// retrieve the evaluation scope (contextual)
+#let eval-scope() = _info.get().scope
 
 // retrieve the package import spec, i.e. `@preview/<name>:<version>` (contextual)
 #let package-import-spec(namespace: "preview") = {
@@ -155,7 +171,7 @@
   }
 
   context {
-    let scope = _info.get().scope + scope
+    let scope = eval-scope() + scope
     let module = tidy.parse-module(
       code,
       name: name,

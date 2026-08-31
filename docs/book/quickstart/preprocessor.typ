@@ -8,7 +8,7 @@ This is where Prequery's preprocessor enters the picture.
 
 = Configuring `prequery`
 
-In the #link(label("page:/prequery/quickstart/documents"))[previous section], we have prepared our document to provide the necessary information, now we need to configure the preprocessor to use it.
+In the #link(label("page:/quickstart/documents"))[previous section], we have prepared our document to provide the necessary information, now we need to configure the preprocessor to use it.
 This is done inside the document's `typst.toml` file:
 
 ```toml
@@ -65,6 +65,6 @@ You have now seen how to automate the preparation of you document's resources us
 - Configure the `prequery` command line tool in `typst.toml` to tell it what kind of resources/processing is required.
 - Run the `prequery` command whenever your resources have changed.
 
-You can take a look at the #link(label("page:/prequery/preprocessors/web-resource"))[`web-resource` preprocessor's documentation] to see its more advanced features.
-For other use cases, the #link(label("page:/prequery/preprocessors/shell"))[`shell` preprocessor] offers early support for running arbitrary commands.
+You can take a look at the #link(label("page:/preprocessors/web-resource"))[`web-resource` preprocessor's documentation] to see its more advanced features.
+For other use cases, the #link(label("page:/preprocessors/shell"))[`shell` preprocessor] offers early support for running arbitrary commands.
 If you need to do something and are not sure if it can be done with _Prequery_, let us know in an issue on #link("https://github.com/typst-community/prequery/issues")[the package] or #link("https://github.com/typst-community/prequery-preprocess/issues")[the CLI tool].

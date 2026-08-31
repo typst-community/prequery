@@ -1,6 +1,6 @@
 #import "@preview/crudo:0.1.1"
 
-#import "/docs/book/tidy.typ": module, tidy.parse-module
+#import "/docs/template.typ": module
 
 #title[Prequery API]
 

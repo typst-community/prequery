@@ -27,11 +27,11 @@ doc:
 
 # build the book
 book:
-  typst compile --root . --features bundle,html --format bundle docs/book/book.typ docs/book/dist/
-  pagefind --site docs/book/dist --output-subdir prequery/pagefind
+  typst compile --root . --features bundle,html --format bundle docs/book.typ docs/dist/
+  pagefind --site docs/dist --output-subdir pagefind
 
 serve-book:
-  typst watch --root . --features bundle,html --format bundle docs/book/book.typ docs/book/dist/
+  typst watch --root . --features bundle,html --format bundle docs/book.typ docs/dist/
 
 # run test suite
 test *args:

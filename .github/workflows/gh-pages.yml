@@ -34,7 +34,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: docs/book/dist/prequery
+          path: docs/dist
 
   deploy:
     name: Deploy GitHub Pages

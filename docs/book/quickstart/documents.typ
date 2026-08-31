@@ -52,4 +52,4 @@ typst compile --input prequery-fallback=true main.typ
 
 = Next steps
 
-At this point, you don't have your image inside your document yet -- for that, you'll need to #link(label("page:/prequery/quickstart/preprocessor"))[run the `prequery` CLI tool].
+At this point, you don't have your image inside your document yet -- for that, you'll need to #link(label("page:/quickstart/preprocessor"))[run the `prequery` CLI tool].
